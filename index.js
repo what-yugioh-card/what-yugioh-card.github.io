@@ -191,6 +191,7 @@ LoadFromURL = (() =>
 
 Work = (() =>
 {
+    document.getElementById('close-box').addEventListener('click', () => ChooseInputScreen());
     const _workStatusBox = document.getElementById('work-status-box');
     const _workStatusText = document.getElementById('work-status');
     const _overlayContainer = document.getElementById('overlay-container');
@@ -255,6 +256,8 @@ Work = (() =>
         {
             _workStatusText.innerText = ('Analyzed '+i+' of '+nCandidates+'…');
             await sleep(0);
+            if (!IsCurrent(t)) return;
+            
             const cards = candidates.slice(i, i+STRIDE)
                                     .map((c) => ImageParse.TryDetectCard(imageDB, c))
                                     .filter((o)=>(o));
