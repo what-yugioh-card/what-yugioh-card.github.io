@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        
+        <title>What's that Yu-Gi-Oh! card?</title>
+        
+        <link rel="stylesheet" href="index.css">
+        <script defer src="index.js"></script>
+    </head>
+    
+    <body class="noscript">
+        <script>document.body.className='noasync';</script>
+        <div id="noscript-box" class="error-box">This page requires JavaScript to function</div>
+        <div id="noasync-box" class="error-box">Your browser is unsupported</div>
+        <div id="choose-box">
+            <span><b>Click</b> to choose file</span>
+            <span><b>Drag</b> and Drop Image</span>
+            <span><b>Paste</b> Image URL</span>
+        </div>
+        <div id="loading-box">
+            <span id="loading-header"></span>
+            <div id="loading-bar"><div id="loading-bar-filled"></div></div>
+            <span id="loading-bar-text"></span>
+        </div>
+        <div id="working-box">
+            <div id="image-container">
+                <canvas id="the-image"></canvas>
+                <div id="canvas-container">
+                    <canvas id="the-canvas"></canvas>
+                </div>
+                <div id="overlay-container"></div>
+            </div>
+            <div id="work-status-box">
+                <img id="work-working" src="img/loading.gif">
+                <span id="work-status">Processing&hellip;</span>
+            </div>
+        </div>
+    </body>
+</html>
