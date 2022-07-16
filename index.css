@@ -1,6 +1,6 @@
 body.noscript :not(#noscript-box), body.noasync :not(#noasync-box), body:not(.noscript) #noscript-box, body:not(.noasync) #noasync-box { display: none; }
 body:not(.loading) #loading-box { display: none; }
-body:not(.choose) #choose-box { display: none; }
+body:not(.choose) #choose-box, body:not(.choose) #choose-subtitle { display: none; }
 body:not(.working) #working-box { display: none; }
 
 html, body { margin: 0; height: 100%; width: 100%; }
@@ -30,9 +30,26 @@ body { background: #ccc; display: flex; justify-content: center; align-items: ce
     cursor: pointer;
 }
 
+body.choose { flex-direction: column; }
 #choose-box > span { padding: .3em; flex-basis: 0; flex-grow: 1; text-align: center; }
 #choose-box > span > b { display: block; font-size: 3em; }
 #choose-box > span + span { border-left: 1px dashed #333; }
+
+#choose-subtitle
+{
+    margin-top: 10px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12px;
+    color: #999999;
+}
+#choose-subtitle > a
+{
+    cursor: pointer;
+    text-decoration: underline;
+    color: #000000;
+}
+#choose-subtitle > a:hover { text-decoration: underline overline dotted; }
+#choose-subtitle > span { color: #707070; }
 
 #loading-box
 {
