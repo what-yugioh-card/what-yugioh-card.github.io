@@ -244,7 +244,9 @@ Work = (() =>
         await sleep(0);
         if (!IsCurrent(t)) return;
         
-        const candidates = ImageParse.ComponentsToScoredCandidates(components);
+        let candidates = ImageParse.ComponentsToScoredCandidates(components);
+        if (!candidates.length)
+            candidates = [{left: 0, top: 0, width: ImageParse.GetCanvasWidth(), height: ImageParse.GetCanvasHeight()}];
         const nCandidates = candidates.length;
         _workStatusText.innerText = ('Found '+nCandidates+'…');
         
