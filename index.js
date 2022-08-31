@@ -194,6 +194,7 @@ Work = (() =>
     document.getElementById('close-box').addEventListener('click', () => ChooseInputScreen());
     const _workStatusBox = document.getElementById('work-status-box');
     const _workStatusText = document.getElementById('work-status');
+    const _setWorkStatus = ((t) => { console.log(t); _workStatusText.innerText = t; });
     const _overlayContainer = document.getElementById('overlay-container');
     
     const _tryRenderCard = ((card) =>
@@ -237,10 +238,10 @@ Work = (() =>
         }
         
         _workStatusBox.className = 'working';
-        _workStatusText.innerText = 'Starting up…';
+        _setWorkStatus('Starting up…');
         document.body.className = 'working';
         
-        _workStatusText.innerText = 'Finding cards…';
+        _setWorkStatus('Finding cards…');
         await sleep(0);
         if (!IsCurrent(t)) return;
         
@@ -248,7 +249,7 @@ Work = (() =>
         if (!candidates.length)
             candidates = [{left: 0, top: 0, width: ImageParse.GetCanvasWidth(), height: ImageParse.GetCanvasHeight()}];
         const nCandidates = candidates.length;
-        _workStatusText.innerText = ('Found '+nCandidates+'…');
+        _setWorkStatus('Found '+nCandidates+'…');
         
         await EnsureScriptLoaded('https://yugioh-deckcheck.github.io/carddata.js');
         
@@ -256,7 +257,7 @@ Work = (() =>
         const STRIDE = 10;
         for (let i=0; i<nCandidates; i += STRIDE)
         {
-            _workStatusText.innerText = ('Analyzed '+i+' of '+nCandidates+'…');
+            _setWorkStatus('Analyzed '+i+' of '+nCandidates+'…');
             await sleep(0);
             if (!IsCurrent(t)) return;
             
@@ -276,7 +277,7 @@ Work = (() =>
             _tryRenderCard(card);
             
         _workStatusBox.className = '';
-        _workStatusText.innerText = 'Done.';
+        _setWorkStatus('Done.');
     });
 })();
 
