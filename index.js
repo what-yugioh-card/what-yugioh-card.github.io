@@ -205,7 +205,7 @@ Work = (() =>
             const canvasHeight = ImageParse.GetCanvasHeight();
             const overlayBox = document.createElement('a');
             overlayBox.className = 'clickable-card';
-            overlayBox.href = ('https://db.ygorganization.com/card#'+card.cardId);
+            overlayBox.href = ('https://db.ygoresources.com/card#'+card.cardId);
             overlayBox.target = '_blank';
             overlayBox.style.left = ((card.left*100/canvasWidth)+'%');
             overlayBox.style.width = ((card.width*100/canvasWidth)+'%');
